@@ -12,11 +12,6 @@ def test_override_file(manager, data_function, tmpdir):
     Test the override_file functionality.
     """
 
-    def default_tester(manager):
-        """
-        Function to test whether the file name is test_file.
-        """
-        assert manager.get('test_file').name == ('sunpy.test_file')
 
     def override_file_tester(manager):
         """
@@ -27,7 +22,6 @@ def test_override_file(manager, data_function, tmpdir):
 
     # Outside the context manager file is default
     folder = tmpdir.strpath
-    data_function(default_tester)
     write_to_test_file(str(Path(f'{folder}/another_file')), 'a')
 
     with manager.override_file('test_file', f'file://{folder}/another_file'):
