@@ -61,3 +61,10 @@ def sqlmanager(tmp_path, downloader, sqlstorage, mocker):
     mocker.patch('sunpy.data.data_manager.cache.urlopen', return_value=m)
     return sqlmanager
 
+@pytest.fixture
+def data_function(manager):
+    @manager.require('test_file', ['url1/test_file', 'url2'], mocks.MOCK_HASH)
+    def foo(manager_tester=lambda x: 1):
+        manager_tester(manager)
+
+    return foo
