@@ -1,7 +1,6 @@
 import os
 import re
 from pathlib import Path,PurePosixPath
-import 
 import pytest
 
 from sunpy.data.data_manager.tests.mocks import MOCK_HASH, write_to_test_file
