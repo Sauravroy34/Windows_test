@@ -16,11 +16,11 @@ def test_override_file(manager, data_function, tmpdir):
         """
         Function to test whether the file is /tmp/another_file.
         """
-        assert (manager.get('test_file')) == Path(f"{folder}/another_file")
+        assert manager.get('test_file').resolve() == Path(f"{folder}/another_file").resolve()
 
 
     # Outside the context manager file is default
-    folder = Path(tmpdir.strpath)
+    folder = (tmpdir.strpath)
     write_to_test_file(str(Path(f'{folder}/another_file')), 'a')
 
     with manager.override_file('test_file', f'file://{folder}/another_file'):
