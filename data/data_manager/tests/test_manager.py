@@ -1,7 +1,7 @@
 import os
 import re
-from pathlib import Path
-
+from pathlib import Path,PurePosixPath
+import 
 import pytest
 
 from sunpy.data.data_manager.tests.mocks import MOCK_HASH, write_to_test_file
@@ -17,7 +17,7 @@ def test_override_file(manager, data_function, tmpdir):
         """
         Function to test whether the file is /tmp/another_file.
         """
-        assert str(manager.get('test_file')) == Path(f"{folder}/another_file")
+        assert PurePosixPath(manager.get('test_file')) == PurePosixPath(f"{folder}/another_file")
 
 
     # Outside the context manager file is default
