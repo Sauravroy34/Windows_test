@@ -14,6 +14,7 @@ class MockDownloader(DownloaderBase):
         self.last_called_url = ''
 
     def download(self, url, path,**kwargs):
+        print(kwargs)
         write_to_test_file(path, "a")
         self.times_called += 1
         self.last_called_url = url
