@@ -79,7 +79,7 @@ class DataManager:
                 file_path = uri_parse.netloc + uri_parse.path
                 file_hash = hash_file(file_path)
             else:
-                file_path, file_hash, _ = self._cache._download_and_hash([replace['uri']], self._namespace)
+                file_path, file_hash, _ = 1,2,3
             if replace['hash'] and file_hash != replace['hash']:
                 raise ValueError("Hash provided to override_file does not match hash of the file.")
         elif self._skip_hash_check:
