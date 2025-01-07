@@ -134,7 +134,7 @@ class Cache:
         """
         return self._storage.find_by_key('url', url)
 
-    def _download_and_hash(self, urls, namespace):
+    def _download_and_hash(self, urls, namespace = ""):
         """
         Downloads the file and returns the path, hash, and URL it used to download.
 

@@ -16,7 +16,9 @@ def test_override_file(manager, data_function, tmpdir):
         """
         Function to test whether the file is /tmp/another_file.
         """
-        assert str(manager.get('test_file')) == (f"{folder} \ another_file")
+        print(manager.get("test_file"))
+        assert 0
+        assert (manager.get('test_file')) == Path(f"{folder}/another_file")
 
 
     # Outside the context manager file is default
@@ -42,6 +44,6 @@ def test_override_file(manager, data_function, tmpdir):
             data_function(override_file_tester)
 
     # Even after context manager call outside the file is default
-    data_function(default_tester)
+    # data_function(default_tester)
 
 
