@@ -74,10 +74,10 @@ class DataManager:
         """
         replace = self._skip_file.get(name)
         if replace:
-            uri_parse = urlparse(replace['uri'])
+            print("hi")
+            uri_parse = 2
             if uri_parse.scheme in ("", "file"):
-                file_path = uri_parse.netloc + uri_parse.path
-                file_hash = hash_file(file_path)
+                print("f")
             else:
                 file_path, file_hash, _ = 1,2,3
             if replace['hash'] and file_hash != replace['hash']:
