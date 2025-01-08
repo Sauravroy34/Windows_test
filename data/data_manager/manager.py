@@ -79,7 +79,7 @@ class DataManager:
             if uri_parse.scheme in ("", "file"):
                 print("f")
             else:
-                file_path, file_hash, _ = 1,2,3
+                file_path, file_hash, _ = self._cache._download_and_hash([replace['uri']], "")
             if replace['hash'] and file_hash != replace['hash']:
                 raise ValueError("Hash provided to override_file does not match hash of the file.")
         elif self._skip_hash_check:

@@ -159,3 +159,5 @@ class Cache:
             except Exception as e:
                 warn_user(f"{e}")
                 errors.append(f"{e}")
+        else:
+            raise RuntimeError(errors)
