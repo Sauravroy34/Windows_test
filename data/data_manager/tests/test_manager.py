@@ -16,7 +16,6 @@ def test_override_file(manager, data_function, tmpdir):
         """
         Function to test whether the file is /tmp/another_file.
         """
-        print(manager.get("test_file"))
         assert (manager.get('test_file')) == Path(f"{folder}/another_file")
 
 
@@ -24,7 +23,7 @@ def test_override_file(manager, data_function, tmpdir):
     folder = (tmpdir.strpath)
     write_to_test_file(str(Path(f'{folder}/another_file')), 'a')
 
-    with manager.override_file('test_file', f'file://{folder}/another_file'):
+    with manager.override_file('test_file', f'file:///{folder}/another_file'):
         # Inside the file is replaced
         data_function(override_file_tester)
 
